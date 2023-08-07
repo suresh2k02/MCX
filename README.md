@@ -12,4 +12,5 @@
 #### Differences spotted! Printing the results.
 
 
-![Screenshot 2023-08-07 080214](https://github.com/suresh2k02/MCX/assets/90079666/f63c1d2b-838c-4861-af78-a712bea94963)
+
+![Screenshot 2023-08-07 080214](https://github.com/suresh2k02/MCX/assets/90079666/92084ccb-e9ea-4cdc-82f0-9959808e5266)
