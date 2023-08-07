@@ -130,7 +130,7 @@ public class TaskOne {
 	@AfterTest
 	public void afterTest() {
 		
-		driver.close();
+		driver.quit();
 		
 
 	}
