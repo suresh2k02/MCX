@@ -15,17 +15,15 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import java.time.format.DateTimeFormatter;  
-import java.time.LocalDateTime;  
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class TaskOne {
 	public WebDriver driver;
 
+	
 
 	@Test
 	public void login() throws Exception  {
@@ -55,7 +53,7 @@ public class TaskOne {
 		String childwin=it.next();
 		
 		driver.switchTo().window(childwin);
-		System.out.println(driver.getTitle());
+		//System.out.println(driver.getTitle());
 
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		//System.out.println(driver.getTitle());
@@ -67,13 +65,17 @@ public class TaskOne {
 		String befour_refresh=driver.findElement(By.xpath("//span[@id='litPrice']")).getText();
         
 
-		System.out.println("The gold value befour refresh :"+ befour_refresh);
+		String dateTimeBeforeRefresh = getCurrentDateTime();
+        System.out.println("Before Refresh: " + dateTimeBeforeRefresh);
+        
+        
+		System.out.println("The gold value:"+ befour_refresh);
 		
 		
 		int res1=Integer.parseInt(befour_refresh);  
 		
 
-		Thread.sleep(20000);
+		Thread.sleep(120000);
 
 		
 		
@@ -81,8 +83,13 @@ public class TaskOne {
 		//driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 		String after_refresh=driver.findElement(By.xpath("//span[@id='litPrice']")).getText();
 
+		String dateTimeAfterWait = getCurrentDateTime();
+	    
+		System.out.println("After Waiting 2 Minutes: " + dateTimeAfterWait);
 
-		System.out.println("The gold value after refresh is :"+ after_refresh);
+		
+		System.out.println("The gold value:"+ after_refresh);
+		
 
 		int res2=Integer.parseInt(after_refresh);  
 
@@ -95,6 +102,12 @@ public class TaskOne {
 
 		
 	}
+	
+	private static String getCurrentDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date currentDate = new Date();
+        return dateFormat.format(currentDate);
+    }
 	
 	@BeforeTest
 	public void openurl() throws Exception {
